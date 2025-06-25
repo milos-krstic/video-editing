@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miloš Krstić - Video Editor Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Questrial&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Questrial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 90vh;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #384277 0%, #2c335a 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+        /* White circle around play button */
+        .profile-img::before {
+            content: '';
+            width: 70px;
+            height: 70px;
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* Curved play button triangle */
+        .profile-img::after {
+            content: '';
+            width: 28px;
+            height: 28px;
+            background: white;
+            margin-left: 5px;
+            clip-path: polygon(15% 10%, 90% 50%, 15% 90%, 8% 80%, 8% 20%);
+            border-radius: 3px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title {
+            font-size: 18px;
+            color: #ecf0f1;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            list-style: none;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+
+        .contact-info li::before {
+            font-family: 'Material Symbols Outlined';
+            margin-right: 12px;
+            font-size: 20px;
+            color: #f39c12;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-top: -2px;
+            line-height: 1;
+        }
+		
+		.contact-info li:nth-child(5) a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.contact-info li:nth-child(5) a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+
+.contact-info li:nth-child(4) a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.contact-info li:nth-child(4) a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+
+        /* Material Icons for each contact item */
+        .contact-info li:nth-child(1)::before {
+            content: 'home';
+        }
+
+        .contact-info li:nth-child(2)::before {
+            content: 'phone';
+        }
+
+        .contact-info li:nth-child(3)::before {
+            content: 'mail';
+        }
+
+        .contact-info li:nth-child(4)::before {
+            content: 'work';
+        }
+
+        .contact-info li:nth-child(5)::before {
+            content: 'movie';
+        }
+
+        /* AI Tools section - keep yellow bullet points */
+        .ai-tools {
+            list-style: none;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ai-tools li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .ai-tools li::before {
+            content: '●';
+            color: #f39c12;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #f39c12;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 5px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+
+        .main-content {
+            padding: 40px 50px;
+            background: #fff;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+        }
+
+        .summary h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .summary p {
+            color: #5a6c7d;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        .experience-item {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .date {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .job-description {
+            color: #5a6c7d;
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .job-description li::before {
+            content: '●';
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid transparent;
+            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, #667eea 0%, #764ba2 100%) 1;
+            text-align: center;
+        }
+
+        .cert-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .cert-item p {
+            color: #5a6c7d;
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+            }
+            
+            .main-content {
+                padding: 30px 25px;
+            }
+            
+            .sidebar {
+                padding: 30px 25px;
+            }
+        }
+
+        .portfolio-highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .portfolio-highlight h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .portfolio-highlight h3::before {
+            content: 'movie';
+            font-family: 'Material Symbols Outlined';
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .portfolio-btn {
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img"></div>
+                <h1 class="name">Miloš Krstić</h1>
+                <p class="title">Content & Video Editor</p>
+            </div>
+
+            <ul class="contact-info">
+                <li>Narodnog fronta 54<br>21000 Novi Sad, Serbia</li>
+                <li>+381-64-086-31-63</li>
+                <li>m.krstic8282@gmail.com</li>
+                <li><a href="https://www.linkedin.com/in/milo%C5%A1-krsti%C4%87-5a830b179/">LinkedIn Profile</a></li>
+                <li><a href="https://alkaline-agreement-737.notion.site/Video-Editor-Portfolio-Milo-Krsti-16d2adbe5160803287f9f42252f2a1cc">Video Portfolio</a></li>
+            </ul>
+
+            <div class="sidebar-section">
+                <h3>Video Editing</h3>
+                <div class="skill-item">
+                    <div class="skill-name">Adobe Premiere Pro</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">After Effects</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">DaVinci Resolve</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Design & Audio</h3>
+                <div class="skill-item">
+                    <div class="skill-name">Photoshop</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Illustrator</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">Adobe Audition</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+				<div class="skill-item">
+                    <div class="skill-name">Izotope</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h3>AI Tools</h3>
+			      <ul class="ai-tools">
+                    <li>Sora</li>
+                    <li>Runway</li>
+                    <li>Midjouney</li>
+                    <li>Eleven Labs</li>
+                    <li>Play.ht</li>
+                    <li>Suno</li>
+            </ul>
+			</div>
+
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-name">Serbian (Native)</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">English (Professional)</div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="summary">
+                <h2>Professional Summary</h2>
+                <p>Creative video editor and content creator with 5+ years of experience producing engaging multimedia content across diverse industries. Specialized in video editing, visuals, and audio post-production with expertise in Adobe Creative Suite. Proven track record in managing end-to-end video production workflows, from concept development to final delivery.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                 <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Media Editor &amp; Project Manager</div>
+                            <div class="company">WADM LTD</div>
+                        </div>
+                        <div class="date">2023 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Edit promotional videos and marketing content using Adobe Premiere Pro and After Effects</li>
+                            <li>Create motion graphics and visual effects for social media campaigns</li>
+                            <li>Develop video scripts and storyboards for client projects</li>
+                            <li>Conduct competitor analysis and implement SEO strategies for video content</li>
+                            <li>Manage end-to-end video production workflow from concept to delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Production Editor</div>
+                            <div class="company">MDPI</div>
+                        </div>
+                        <div class="date">2021 - 2023</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+							<li>Formatted and converted scientific manuscripts to journal guidelines</li>
+							<li>Managed XML conversion processes for digital publishing platforms</li>
+							<li>Performed quality control on XML content for academic publications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Web Editor & Journalist</div>
+                            <div class="company">European Capital of Culture Novi Sad</div>
+                        </div>
+                        <div class="date">2021</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Wrote and edited content for cultural events on WordPress-based website</li>
+                            <li>Worked alongside video editors; guided the style, pacing and footage choices</li>
+                            <li>Conducted field journalism and interviews</li>
+                            <li>Interim Editor-in-Chief: team supervision, content management and planning, communication with intreviewees and partners</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Virtual Assistant</div>
+                            <div class="company">Luxury Avenue Media</div>
+                        </div>
+                        <div class="date">2020 - 2021</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Lead finding and email personalization</li>
+                            <li>Researching companies and their decision makers</li>
+						</ul>
+                    </div>
+                </div>
+				
+				<div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Media Editor & Board Member</div>
+                            <div class="company">NGO Carpe Noctem</div>
+                        </div>
+                        <div class="date">2019 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Writing, editing and producing podcast episodes; creation of accompanying visual content</li>
+                            <li>Producing short-form video content across multiple social media platforms</li>
+							<li>Live event filming and post-production editing</li>
+                            <li>Making a documentary about the organization; Production, filming, editing and supervision of the project</li>
+                            <li>Managing content calendars and publishing schedules</li>
+                            <li>Making graphics for social media and blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Bachelor's Degree in Journalism (Media Studies)</div>
+                            <div class="company">Faculty of Philosophy Novi Sad</div>
+                        </div>
+                        <div class="date">2016 - 2020</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Extensive studies in TV, Radio, Web and Mobile Journalism</li>
+                            <li>Writer for faculty portal "Univerzitetski Odjek" - Specialized in multimedia journalism and content creation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Certifications & Training</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <h4>Climate Caravan Podcast</h4>
+                        <p>Journalist & Producer Training</p>
+                    </div>
+					<div class="cert-item">
+                        <h4>Radio Television of Vojvodina</h4>
+                        <p>Radio & TV Training</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>SEO Writing Masterclass</h4>
+                        <p>Surfer certification</p>
+                    </div>
+                    <div class="cert-item">
+                        <h4>Parners Serbia</h4>
+                        <p>Ivestigative Journalism Training</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-highlight">
+                <h3>Portfolio Highlights</h3>
+                <p>Video Production • Social Media Content • Graphics Editing</p>
+                <a href="https://alkaline-agreement-737.notion.site/Video-Editor-Portfolio-Milo-Krsti-16d2adbe5160803287f9f42252f2a1cc" class="portfolio-btn">View Complete Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate skill bars on load
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+
+        // Add hover effects to experience items
+        const experienceItems = document.querySelectorAll('.experience-item');
+        experienceItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.borderImage = 'linear-gradient(135deg, #764ba2 0%, #667eea 100%) 1';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.borderImage = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1';
+            });
+        });
+    </script>
+</body>
+</html>
